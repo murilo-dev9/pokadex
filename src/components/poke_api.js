@@ -1,10 +1,10 @@
 
 const pokeapi= () => {
     const base = "https://pokeapi.co/api/v2/";
-const getPokemonList = async (limit = 20, offset = 0, id) => {
-  const response = await fetch(`${base}pokemon/${id}?limit=${limit}&offset=${offset}`);
+const getPokemon = async (id) => {
+  const response = await fetch(`${base}pokemon/${id}`);
   const data = await response.json();
-  return data.results;
+  return data;
 }
 
 const getPokemonDetails = async (id) => {
@@ -13,10 +13,15 @@ const getPokemonDetails = async (id) => {
   return data;
 }
 
-const getPokemonSprites = async (id, direction) => {
-  const response = await fetch(`${base}pokemon/${id}/sprites/${direction}`);
+const getPokemonSprites = async (id, direction='front_default') => {
+  const response = await fetch(`${base}pokemon/${id}`);
   const data = await response.json();
-  return data.sprites;
+  return data.sprites[direction];
+}
+return {
+  getPokemon,
+  getPokemonDetails,
+  getPokemonSprites
 }
 
 }

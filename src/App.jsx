@@ -1,6 +1,7 @@
 import styles from './App.module.css';
 import Card from './components/card/card';
 
+
 function App() {
   return (
     <div>
@@ -8,7 +9,7 @@ function App() {
         <h1>Pokadex</h1>
       </header>
       <div>
-        <Card id={1} />
+        <Card id={3} direction='front_default' />
       </div>
     </div>
   );
