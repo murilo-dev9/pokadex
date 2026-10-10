@@ -19,17 +19,10 @@ const getPokemonSprites = async (id) => {
   return data.sprites.front_default;
 }
 
-const getMaxPokemonId = async () => {
-  const response = await fetch(`${base}pokemon?limit=1`);
-  const data = await response.json();
-  return data.count;
-};
-
 return {
   getPokemon,
   getPokemonDetails,
-  getPokemonSprites,
-  getMaxPokemonId
+  getPokemonSprites
 }
 
 }
